@@ -1,0 +1,44 @@
+<form #form="ngForm" (submit)="onSubmit(form)"
+  [class.submited] ="service.formSubmitted" novalidate
+   autocomplete="off">
+    <div class="mb-3 col-6">
+        <input type="hidden" name="paymentDetailId"
+        [value] ="service.formData.paymentDetailId">
+        <label>Card Owner Name</label>
+        <input class="form-control form-control-lg"
+        palceholder="Name on Card"
+        #cardOwnerName="ngModel" name="cardOwnerName"
+        [(ngModel)]="service.formData.cardOwnerName"
+        required>
+    </div>   
+    <div class="mb-3 col-6">
+        <label>Card Number</label>
+        <input class="form-control form-control-lg"
+        palceholder="16 Digit Card Number"
+        #cardNumber="ngModel" name="cardNumber"
+        [(ngModel)]="service.formData.cardNumber"
+        required minlength="16" maxlength="16">
+    </div>   
+    <div class="mb-3">
+        <label>Security Code</label>
+        <input class="form-control form-control-lg"
+        palceholder="CVV" type="password"
+        #securityCode="ngModel" name="securityCode"
+        [(ngModel)]="service.formData.securityCode"
+        required minlength="3" maxlength="3">
+    </div>   
+    <div class="mb-3">
+        <label>Valid Through</label>
+        <input class="form-control form-control-lg"
+        palceholder="MM/YY"
+        #expirationDate="ngModel" name="expirationDate"
+        [(ngModel)]="service.formData.expirationDate">
+    </div> 
+    <div class="d-grid">
+        <button class="btn btn-lg btn-success" type="submit">
+            Submit
+        </button>
+    </div>
+    
+    
+</form> 
